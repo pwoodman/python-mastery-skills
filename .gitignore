@@ -205,3 +205,8 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+# Skill build artifacts
+tmp_extract/
+tmp_skill_build/
+tmp_skill_check/
