@@ -13,9 +13,9 @@ judgment of a senior developer and architect baked in — not just rules, but
 ## Add to Claude Chat UI (Claude.ai)
 
 1. Download `python-mastery.skill`.
-2. In Claude.ai, enable Code execution in Settings → Capabilities.
+2. In Claude.ai, enable Code execution (and File creation) in Settings → Capabilities.
 3. Go to Customize → Skills.
-4. Click `+`, choose `Upload a skill`, and select `python-mastery.skill`.
+4. Click `+`, choose `Upload a skill`, and select `python-mastery.skill` (the zip must contain a `python-mastery/` folder with `SKILL.md` at its root).
 5. Toggle the skill on.
 
 ## Add to Claude Code
