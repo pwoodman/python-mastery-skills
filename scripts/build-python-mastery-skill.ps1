@@ -17,7 +17,7 @@ Copy-Item -Path (Join-Path $SourceDir "*") -Destination $target -Recurse -Force
 
 if (Test-Path $OutFile) { Remove-Item $OutFile -Force }
 Add-Type -AssemblyName System.IO.Compression.FileSystem
-[System.IO.Compression.ZipFile]::CreateFromDirectory($target, (Join-Path $root $OutFile), [System.IO.Compression.CompressionLevel]::Optimal, $false)
+[System.IO.Compression.ZipFile]::CreateFromDirectory($target, (Join-Path $root $OutFile), [System.IO.Compression.CompressionLevel]::Optimal, $true)
 
 Write-Host "Built skill archive: $OutFile"
 Write-Host "Cleanup: removing staging directory"

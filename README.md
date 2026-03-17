@@ -10,11 +10,19 @@ A Claude skill and human-readable reference that covers Python A-Z with the
 judgment of a senior developer and architect baked in — not just rules, but 
 *when to break them and why*.
 
-## Install as a Claude Skill
+## Add to Claude Chat UI (Claude.ai)
 
-1. Download [`python-mastery.skill`](./python-mastery.skill)
-2. In Claude.ai → Settings → Skills → Upload skill
-3. Claude will now load the right reference file for any Python question
+1. Download `python-mastery.skill`.
+2. In Claude.ai, enable Code execution in Settings → Capabilities.
+3. Go to Customize → Skills.
+4. Click `+`, choose `Upload a skill`, and select `python-mastery.skill`.
+5. Toggle the skill on.
+
+## Add to Claude Code
+
+1. Create a skill folder in either `~/.claude/skills/python-mastery/` (personal) or `.claude/skills/python-mastery/` (project).
+2. Copy the contents of `docs/` into that folder so it contains `SKILL.md` and `references/`.
+3. In Claude Code, ask “List all available Skills” to confirm it’s discovered.
 
 ## Rebuild skill bundle
 
