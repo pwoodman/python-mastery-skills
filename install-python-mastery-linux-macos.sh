@@ -6,7 +6,7 @@ INSTALL_ROOT="${CLAUDE_SKILLS_ROOT:-$HOME/.claude/skills}"
 SKILL_NAME="python-mastery"
 TARGET="${INSTALL_ROOT}/${SKILL_NAME}"
 
-echo "Installing Python Mastery skill..."
+echo "Installing Python Mastery skill (Linux/macOS)..."
 
 if ! command -v git >/dev/null 2>&1; then
   echo "Error: git is required but was not found on PATH." >&2

@@ -8,7 +8,7 @@ $target = Join-Path $InstallRoot $SkillName
 $tempRoot = Join-Path $env:TEMP "python-mastery-skills-install"
 $tempRepo = Join-Path $tempRoot "repo"
 
-Write-Host "Installing Python Mastery skill..."
+Write-Host "Installing Python Mastery skill (Windows)..."
 
 if (-not (Get-Command git -ErrorAction SilentlyContinue)) {
     throw "git is required but was not found on PATH."

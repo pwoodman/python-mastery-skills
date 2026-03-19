@@ -10,6 +10,20 @@ A Claude skill and human-readable reference that covers Python A-Z with the
 judgment of a senior developer and architect baked in — not just rules, but 
 *when to break them and why*.
 
+## Quick Install (Claude Code)
+
+One-liner installs (no repo clone needed):
+
+- Windows (PowerShell): `irm https://raw.githubusercontent.com/pwoodman/python-mastery-skills/main/install-python-mastery-windows.ps1 | iex`
+- Linux/macOS (bash): `curl -fsSL https://raw.githubusercontent.com/pwoodman/python-mastery-skills/main/install-python-mastery-linux-macos.sh | bash`
+
+If you already cloned this repo:
+
+- Windows (PowerShell): `./install-python-mastery-windows.ps1`
+- Linux/macOS (bash): `bash ./install-python-mastery-linux-macos.sh`
+
+Both scripts install to `~/.claude/skills/python-mastery` and replace any existing folder.
+
 ## Add to Claude Chat UI (Claude.ai)
 
 1. Download `python-mastery.skill`.
@@ -23,13 +37,6 @@ judgment of a senior developer and architect baked in — not just rules, but
 1. Create a skill folder in either `~/.claude/skills/python-mastery/` (personal) or `.claude/skills/python-mastery/` (project).
 2. Copy the contents of `docs/` into that folder so it contains `SKILL.md` and `references/`.
 3. In Claude Code, ask “List all available Skills” to confirm it’s discovered.
-
-### Install with scripts
-
-- Linux/macOS: `bash ./scripts/install-python-mastery-skill.sh`
-- Windows (PowerShell): `./scripts/install-python-mastery-skill.ps1`
-
-Both scripts install to `~/.claude/skills/python-mastery` and replace any existing folder.
 
 ## Rebuild skill bundle
 
