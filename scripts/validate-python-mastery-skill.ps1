@@ -9,7 +9,7 @@ Set-StrictMode -Version Latest
 $root = Resolve-Path .
 $skillMd = Join-Path $root $SourceDir "SKILL.md"
 $refDir = Join-Path $root $SourceDir "references"
-$buildScript = Join-Path $root "scripts" "build-python-mastery-skill.ps1"
+$checkScript = Join-Path $root "scripts" "check-python-mastery-skill.ps1"
 
 if (!(Test-Path $skillMd)) {
     Write-Host "Missing: $skillMd"
@@ -79,34 +79,13 @@ if (!(Test-Path $skillPath)) {
     Write-Host "Skill bundle missing: $SkillFile"
     $failed = $true
 } else {
-    if (!(Test-Path $buildScript)) {
-        Write-Host "Build script missing: $buildScript"
+    if (!(Test-Path $checkScript)) {
+        Write-Host "Check script missing: $checkScript"
         $failed = $true
     } else {
-        $tempRel = "tmp_validate_" + [System.Guid]::NewGuid().ToString()
-        $tempRoot = Join-Path $root $tempRel
-        New-Item -ItemType Directory -Path $tempRoot | Out-Null
-        $tempBundleRel = Join-Path $tempRel ([System.IO.Path]::GetFileName($SkillFile))
-        $tempBundle = Join-Path $root $tempBundleRel
-
-        try {
-            & $buildScript -SourceDir $SourceDir -SkillName $SkillName -OutFile $tempBundleRel | Out-Null
-
-            if (!(Test-Path $tempBundle)) {
-                Write-Host "Expected build output missing: $tempBundle"
-                $failed = $true
-            } else {
-                $hashExisting = (Get-FileHash -Algorithm SHA256 -Path $skillPath).Hash
-                $hashNew = (Get-FileHash -Algorithm SHA256 -Path $tempBundle).Hash
-                if ($hashExisting -ne $hashNew) {
-                    Write-Host "Skill bundle is out of date. Run: ./scripts/build-python-mastery-skill.ps1"
-                    $failed = $true
-                }
-            }
-        } finally {
-            if (Test-Path $tempRoot) {
-                Remove-Item -Recurse -Force $tempRoot
-            }
+        & $checkScript -SourceDir $SourceDir -SkillName $SkillName -SkillFile $SkillFile
+        if ($LASTEXITCODE -ne 0) {
+            $failed = $true
         }
     }
 }
