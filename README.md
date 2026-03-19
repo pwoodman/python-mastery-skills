@@ -24,6 +24,13 @@ judgment of a senior developer and architect baked in — not just rules, but
 2. Copy the contents of `docs/` into that folder so it contains `SKILL.md` and `references/`.
 3. In Claude Code, ask “List all available Skills” to confirm it’s discovered.
 
+### Install with scripts
+
+- Linux/macOS: `bash ./scripts/install-python-mastery-skill.sh`
+- Windows (PowerShell): `./scripts/install-python-mastery-skill.ps1`
+
+Both scripts install to `~/.claude/skills/python-mastery` and replace any existing folder.
+
 ## Rebuild skill bundle
 
 If you edit `docs/SKILL.md` or any `docs/references/*.md`, run:
